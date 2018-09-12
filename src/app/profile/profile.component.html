@@ -1,0 +1,21 @@
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-md-4">
+      <img src="{{user?.image || image}}" alt="User Image">
+      <br>
+      <input type="file" id="upload" (change)="upload($event)" accept=".png,.jpg">
+    </div>
+    <div class="col-md-8 details" *ngIf="user">
+        <label for="">Name:</label> <input type="text" name="Username" [(ngModel)]="user.name">
+        <br>
+        <label for="">Contact:</label> <input type="text" name="contact" [(ngModel)]="user.contact">
+        <br>
+        <label for="">Email: {{user?.email}}</label>
+        <div>
+            <button class="btn btn-primary edit" (click)="update()">Update</button>
+          </div>
+    </div>
+  </div>
+</div>
+

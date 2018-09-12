@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <div class="container-fluid">
+    <div class="form-group" *ngIf="data">
+      <input type="text" name="name" class="form-control" placeholder="Enter Product name" aria-describedby="helpId" [(ngModel)]="data.name">
+      <input type="number" name="quantity" class="form-control" placeholder="Enter Product quantity" aria-describedby="helpId" [(ngModel)]="data.quantity">
+      <input type="number" name="price" class="form-control" placeholder="Enter Product price" aria-describedby="helpId" [(ngModel)]="data.price">
+    </div>
+  </div>
+  <button class="btn btn-primary" (click)="add()">Add</button>
+  <br>
+  <br>
+  <br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>products</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let prod of product | async">
+      <tr>
+        <td scope="row">{{prod.name}}</td>
+        <td>{{prod.quantity}}</td>
+        <td>{{prod.price}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
